@@ -1,0 +1,217 @@
+export interface Channel {
+  id: string;
+  name: string;
+  handle: string;
+  subscribers: string;
+  verified: boolean;
+  description: string;
+  /** index into the chart palette tokens (1-5) for avatar background */
+  tone: 1 | 2 | 3 | 4 | 5;
+}
+
+export const channels: Channel[] = [
+  {
+    id: "rickastley",
+    name: "Rick Astley",
+    handle: "@RickAstleyYT",
+    subscribers: "4.2M",
+    verified: true,
+    tone: 1,
+    description: "The official channel of Rick Astley. Never gonna give you up.",
+  },
+  {
+    id: "officialpsy",
+    name: "officialpsy",
+    handle: "@officialpsy",
+    subscribers: "19.3M",
+    verified: true,
+    tone: 2,
+    description: "PSY official channel — K-pop hits and music videos.",
+  },
+  {
+    id: "edsheeran",
+    name: "Ed Sheeran",
+    handle: "@EdSheeran",
+    subscribers: "56.4M",
+    verified: true,
+    tone: 4,
+    description: "Official YouTube channel of Ed Sheeran.",
+  },
+  {
+    id: "luisfonsi",
+    name: "Luis Fonsi",
+    handle: "@LuisFonsi",
+    subscribers: "33.1M",
+    verified: true,
+    tone: 5,
+    description: "Canal oficial de Luis Fonsi.",
+  },
+  {
+    id: "markronson",
+    name: "Mark Ronson",
+    handle: "@MarkRonson",
+    subscribers: "4.9M",
+    verified: true,
+    tone: 3,
+    description: "Producer, DJ and songwriter.",
+  },
+  {
+    id: "queen",
+    name: "Queen Official",
+    handle: "@QueenOfficial",
+    subscribers: "17.8M",
+    verified: true,
+    tone: 1,
+    description: "The official Queen YouTube channel.",
+  },
+  {
+    id: "nirvana",
+    name: "Nirvana",
+    handle: "@Nirvana",
+    subscribers: "5.6M",
+    verified: true,
+    tone: 2,
+    description: "Official Nirvana channel.",
+  },
+  {
+    id: "adele",
+    name: "Adele",
+    handle: "@Adele",
+    subscribers: "31.2M",
+    verified: true,
+    tone: 4,
+    description: "The official Adele YouTube channel.",
+  },
+  {
+    id: "alanwalker",
+    name: "Alan Walker",
+    handle: "@Alanwalkermusic",
+    subscribers: "47.5M",
+    verified: true,
+    tone: 3,
+    description: "Walkers, welcome to the official channel.",
+  },
+  {
+    id: "jacobsfilms",
+    name: "Jacob + Katie Schwarz",
+    handle: "@JacobsFilms",
+    subscribers: "1.1M",
+    verified: false,
+    tone: 2,
+    description: "4K and 8K nature films. Relax, unwind and travel the world.",
+  },
+  {
+    id: "blender",
+    name: "Blender",
+    handle: "@BlenderOfficial",
+    subscribers: "1.4M",
+    verified: true,
+    tone: 4,
+    description: "Open movies, tutorials and news from the Blender community.",
+  },
+  {
+    id: "jawed",
+    name: "jawed",
+    handle: "@jawed",
+    subscribers: "4.4M",
+    verified: false,
+    tone: 5,
+    description: "The very first channel. Zoo enthusiast.",
+  },
+  {
+    id: "freecodecamp",
+    name: "freeCodeCamp.org",
+    handle: "@freecodecamp",
+    subscribers: "10.2M",
+    verified: true,
+    tone: 3,
+    description: "Learn to code for free. Full courses on Python, JavaScript, React and more.",
+  },
+  {
+    id: "mosh",
+    name: "Programming with Mosh",
+    handle: "@programmingwithmosh",
+    subscribers: "4.1M",
+    verified: true,
+    tone: 1,
+    description: "Clear, concise coding tutorials for busy developers.",
+  },
+  {
+    id: "3b1b",
+    name: "3Blue1Brown",
+    handle: "@3blue1brown",
+    subscribers: "6.6M",
+    verified: true,
+    tone: 3,
+    description: "Math explained through animation.",
+  },
+  {
+    id: "karpathy",
+    name: "Andrej Karpathy",
+    handle: "@AndrejKarpathy",
+    subscribers: "920K",
+    verified: true,
+    tone: 2,
+    description: "Neural networks, LLMs and building things from scratch.",
+  },
+  {
+    id: "stanford",
+    name: "Stanford",
+    handle: "@stanford",
+    subscribers: "2.3M",
+    verified: true,
+    tone: 1,
+    description: "Talks, lectures and events from Stanford University.",
+  },
+  {
+    id: "ted",
+    name: "TED",
+    handle: "@TED",
+    subscribers: "25.1M",
+    verified: true,
+    tone: 5,
+    description: "Ideas worth spreading.",
+  },
+  {
+    id: "wizkhalifa",
+    name: "Wiz Khalifa",
+    handle: "@wizkhalifa",
+    subscribers: "15.7M",
+    verified: true,
+    tone: 4,
+    description: "Official Wiz Khalifa channel.",
+  },
+  {
+    id: "katyperry",
+    name: "Katy Perry",
+    handle: "@katyperry",
+    subscribers: "41.3M",
+    verified: true,
+    tone: 5,
+    description: "Official Katy Perry channel.",
+  },
+  {
+    id: "onerepublic",
+    name: "OneRepublic",
+    handle: "@OneRepublic",
+    subscribers: "8.9M",
+    verified: true,
+    tone: 2,
+    description: "Official OneRepublic channel.",
+  },
+];
+
+export const ME = {
+  id: "me",
+  name: "Demo User",
+  handle: "@demo-user",
+  subscribers: "12",
+  verified: false,
+  tone: 3 as const,
+  description: "This is your demo channel. Nothing here is real — it's all saved in your browser.",
+};
+
+export const getChannel = (id: string): Channel | undefined => {
+  if (id === "me" || id === ME.id) return ME;
+  return channels.find((c) => c.id === id);
+};
